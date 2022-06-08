@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./MainPage.module.css"
+import classes from "./AdminPage.module.css"
 
-const MainPage = () => {
+const AdminPage = () => {
     return (
         <div className={classes.mainInfo}>
             <h3>Profile</h3>
@@ -53,4 +53,4 @@ const MainPage = () => {
     )
 }
 
-export default MainPage
+export default AdminPage

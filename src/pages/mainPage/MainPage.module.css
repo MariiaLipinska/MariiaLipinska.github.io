@@ -1,0 +1,41 @@
+.mainInfo {
+    padding: 43px 70px;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    font-family: sans-serif;
+    font-size: 20px;
+    /*background-color: #bebebd;*/
+
+}
+.colorBorder{
+    background-color: #bebebd;
+}
+.education {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 20px;
+
+}
+
+.infoContainer {
+    width: 80%;
+    /*height: 40%;*/
+    background-color: #bebebd;
+    /*color: #d0cccc;*/
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: justify;
+    margin:30px auto;
+
+}
+.text{
+    font-weight: normal;
+    /*margin: 20px;*/
+    height: 120px;
+
+
+}
+

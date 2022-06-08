@@ -1,17 +1,20 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { initializeApp } from "firebase/app";
+import {getFirestore} from "firebase/firestore"
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket:process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID
+    apiKey: "AIzaSyCpbxaSBNMlupZGToMJIhdyb4JzN46FQEQ",
+    authDomain: "resume-project-6b691.firebaseapp.com",
+    projectId: "resume-project-6b691",
+    storageBucket: "resume-project-6b691.appspot.com",
+    messagingSenderId: "483934856946",
+    appId: "1:483934856946:web:93e70e1f489522826c926b"
 };
 
-
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+
 export const storage = getStorage(app);
 export default  getFirestore();

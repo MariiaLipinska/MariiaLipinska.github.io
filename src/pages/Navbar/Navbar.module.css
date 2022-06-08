@@ -1,0 +1,40 @@
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #bebebd;
+    /*background-color: #d0cccc;*/
+    /*background-color: #def0fc;*/
+    font-family: sans-serif;
+}
+.pictureBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:80%;
+    width: 70%;
+    /*background-color: #d0cccc;*/
+    background-color: white;
+    border: 10px solid white;
+    padding-top: 70px;
+    padding-bottom: 50px;
+
+}
+.picture{
+    width: 200px;
+    height: 280px;
+}
+.workContainer{
+    width: 70%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #d0cccc;
+}
+.changeImage{
+    padding-top: 60px ;
+}

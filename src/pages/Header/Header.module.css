@@ -1,0 +1,32 @@
+.container{
+    grid-area: h;
+    background-color: #56e0c7;
+}
+.headerMenu{
+    height:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.resume{
+    display: flex;
+    margin-right: 550px;
+
+}
+.resumeLink{
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.link{
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+.link:hover{
+    color: white;
+    text-decoration: none;
+}
+.active{
+    color: white;
+    text-decoration: none;
+}

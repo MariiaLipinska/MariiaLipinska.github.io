@@ -1,0 +1,16 @@
+
+.container{
+    width: 98vw;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #def0fc;
+    /*background-color: #efeeee;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*.row{*/
+/*    width: 60vw;*/
+/*    height: 60vh;*/
+/*    display: flex;*/
+/*}*/
