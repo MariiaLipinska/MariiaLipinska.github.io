@@ -11,6 +11,7 @@ import db, { storage } from "../firebase";
 import { actionsUsers } from "../redux/ActionCreator/actionUsers";
 
 
+
 export const getInfoFirebase = (dispatch) => {
     const collectionRef = collection(db, "user");
     onSnapshot(collectionRef, (snapshot) => {
@@ -23,26 +24,18 @@ export const getInfoFirebase = (dispatch) => {
             )
         );
     });
-
-// export const login = (formData, setError, setAdmin) => {
-//     const collectionRef = collection(db, `${formData.user}${formData.password}`);
-//     onSnapshot(collectionRef, (snapshot) => {
-//         const doc = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-//         doc.length === 0
-//             ? setError("Email or Password aare incorrect")
-//             : setAdmin(doc[0]);
-//     })
-    // snapshot.docs.map((doc) => ({
-    //   ...doc.data(),
-    //   id: doc.id,
-    // }));
-    // });
 };
 
-export const addInfoFirebase = async (data) => {
-    const collectionRef = collection(db, "user");
-    const docRef = await addDoc(collectionRef, data);
-    docRef.id && console.log("Successfully added");
+
+// export const addInfoFirebase = async (data) => {
+//     const collectionRef = collection(db, "user");
+//     const docRef = await addDoc(collectionRef, data);
+//     docRef.id && console.log("Successfully added");
+// };
+
+export const editDataFirebase = async (id, item) => {
+    const docRef = doc(db, "editData", id);
+    await setDoc(docRef, item);
 };
 
 export const uploadFileToFB = (file, setImage) => {
@@ -63,10 +56,12 @@ export const uploadFileToFB = (file, setImage) => {
             });
         }
     )
-}
+};
+
 export const setImageToFirebase = (image) => {
 console.log(image)
 }
+
 export const getImageFirebase = (dispatch) => {
     const collectionRef = collection(db, "user");
     onSnapshot(collectionRef, (snapshot) => {

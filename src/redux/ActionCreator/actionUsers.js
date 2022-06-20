@@ -2,8 +2,6 @@ import {useDispatch} from "react-redux";
 import {getImageFirebase, getInfoFirebase} from "../../api/firebaseCalls";
 
 export const actionUsersTypes = {
-    // SET_USER: "SET_USER",
-    // REMOVE_USER: "REMOVE_USER",
     CHECK_USER:"CHECK_USER",
     SET_ERROR:"SET_ERROR",
     SET_IMAGE: "SET_IMAGE"
@@ -24,10 +22,10 @@ export const actionsUsers = {
     }),
 }
 
-export const getUser = ()=>{
+export const getUser = () => {
         getInfoFirebase()
 }
-export const getImage = ()=> async(dispatch) =>{
+export const getImage = () => async(dispatch) =>{
     getImageFirebase(dispatch)
 }
 

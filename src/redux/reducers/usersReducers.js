@@ -15,16 +15,16 @@ const usersReducer = (state = initialState, action)=> {
                 ...state,
                 checkUser: action.user
             };
-        // case actionUsersTypes.REMOVE_USER:
-        //     return {
-        //         ...state,
-        //        user: null
-        //     }
             case actionUsersTypes.SET_ERROR:
                 return {
                             ...state,
                            errorAdmin: action.payload
                         }
+        case actionUsersTypes.SET_IMAGE:
+            return {
+                ...state,
+                image: action.payload
+            }
         default:
             return state;
     }

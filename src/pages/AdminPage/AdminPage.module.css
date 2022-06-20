@@ -1,25 +1,53 @@
 .mainInfo {
-    padding: 60px 50px;
+    padding: 40px 30px 10px 30px;
     font-family: sans-serif;
     font-size: 20px;
+    line-height: 30px;
+
 }
 
-.education {
+.infoContainer {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
-    padding-top: 20px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: justify;
+    height: 80px;
+}
+.info{
+    font-weight: bold;
+}
+.text{
+    font-weight: normal;
+    height: 200px;
+}
+.technologies{
+    text-align: center;
+}
+.technologiesWrapper,.technologiesWrapper2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.technologiesWrapper2{
+    padding-left: 17px;
+}
+.icon{
+    width:70px;
+    height: 70px;
+    color:black;
+    /*margin-right: 150px;*/
 
 }
-.infoContainer{
-    margin-bottom: 30px;
+.buttonContainer{
+    display: flex;
+    justify-content: center;
 }
-.colorBorder {
-    background-color:#f3407e;
-    border: 7px solid #f3407e;
-    border-radius: 5px;
-    margin-bottom: 30px;
+.button,.buttonChange{
+    width: 90px;
+    height: 50px;
+    font-size: 20px;
 }
-p{
-    font-weight: bold;
+.buttonChange{
+    display: none;
 }
