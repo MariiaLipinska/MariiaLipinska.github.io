@@ -1,5 +1,6 @@
 .container{
     grid-area: h;
+    /*background-image: radial-gradient( #56e0c7, white);*/
     background-color: #56e0c7;
 }
 .headerMenu{
@@ -29,4 +30,13 @@
 .active{
     color: white;
     text-decoration: none;
+}
+.logInButton{
+    width: 120px;
+    height: 60px;
+    background-color: #56e0c7;
+    cursor:pointer;
+    border: 3px solid white;
+    border-radius: 10px;
+
 }

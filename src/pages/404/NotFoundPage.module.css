@@ -1,11 +1,11 @@
 .container{
-    width: 99vw;
-    height: 85vh;
+    width: 1400px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
+    /*padding: 0;*/
     background-color: #d0cccc;
     color: red;
 }

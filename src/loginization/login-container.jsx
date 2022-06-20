@@ -8,10 +8,8 @@ import SignUp from "./SignUp/signUp";
 const LoginContainer = () => {
     return (
         <div className={classes.container}>
-
             <RsuiteLoginForm/>
             <SignUp/>
-
         </div>
     )
 }

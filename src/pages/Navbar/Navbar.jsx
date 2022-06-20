@@ -1,12 +1,21 @@
 import classes from "./Navbar.module.css"
-import {Link} from "react-router-dom"
-import {RouteConst} from "../../common/RouteConst";
-import photo from "./Photo/Mariia.jpg"
-import {setImageToFirebase, uploadFileToFB} from "../../api/firebaseCalls";
+import photo from "./Photo/photo.jpg"
+import {addInfoFirebase, editInfoFirebase, setImageToFirebase, uploadFileToFB} from "../../api/firebaseCalls";
 import {useEffect, useState} from "react";
+
+
 
 const Navbar = () => {
     const [image, setImage] = useState("")
+    // const path = useLocation().pathname;
+    // const showChangeImage = () => {
+    //     switch (path) {
+    //         case RouteConst.MAIN:
+    //             return false;
+    //         default:
+    //             return true;
+    //     }
+    // };
 
     const handleUpload = (e) =>{
         e.preventDefault()
@@ -15,7 +24,7 @@ const Navbar = () => {
         uploadFileToFB(file,setImage)
     }
     useEffect(()=>{
-        setImageToFirebase()
+        setImageToFirebase(image)
         },[image]
     )
 
@@ -23,23 +32,21 @@ const Navbar = () => {
     return (
         <div className={classes.container}>
             <div className={classes.pictureBox}>
-                <img src={photo} alt="Mariia" className={classes.picture}/>
+                <img src={!image ? photo : image} alt="Mariia" className={classes.picture}/>
                 <br/>
-                <h2>Mariia Lipinska</h2>
-                <br/>
-                <div className={classes.workContainer}>
-                    <h4>Frontend Developer</h4>
-                </div>
+                {/*<h2>Mariia Lipinska</h2>*/}
+                {/*<br/>*/}
+                {/*<div className={classes.workContainer}>*/}
+                {/*    <h4>Frontend Developer</h4>*/}
+                {/*</div>*/}
 
             </div>
             <div className={classes.changeImage}>
                 <form action="" onSubmit={handleUpload}>
                 <input type="file"/>
-                <button type = "submit">Upload image</button>
+                <button type = "submit" className={classes.fileButton}>Set image</button>
             </form>
-                {image !== "" && <img src={image} alt="" style={{height:"280px", width: "200px"}}/>}
             </div>
-
         </div>
 
     )

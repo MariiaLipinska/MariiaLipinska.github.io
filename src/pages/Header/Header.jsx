@@ -16,7 +16,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div>
-                    <Link to={RouteConst.LOGIN} className={`${classes.link} ${classes.active}`}>Log in</Link>
+                    <Link to={RouteConst.LOGIN} className={`${classes.link} ${classes.active}`}><button className={classes.logInButton}>Log in</button></Link>
                 </div>
                 <Link to={RouteConst.NOT_FOUND_PAGE}></Link>
             </div>

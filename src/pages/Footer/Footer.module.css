@@ -1,0 +1,33 @@
+.container{
+    grid-area: f;
+    background-color: #56e0c7;
+}
+.footerMenu{
+    height:100%;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 20px;
+}
+.footerName{
+    font-size: 26px;
+    font-weight: bold;
+}
+.footerContacts{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: white;
+}

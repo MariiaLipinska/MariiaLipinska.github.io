@@ -1,13 +1,13 @@
 
 .container{
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
-    background-color: #bebebd;
-    /*background-color: #d0cccc;*/
-    /*background-color: #def0fc;*/
+    background-image: radial-gradient(#bebebd, #def0fc);
+    /*background-image: linear-gradient(to bottom ,#bebebd, #def0fc);*/
+    /*background-color: #bebebd;*/
     font-family: sans-serif;
 }
 .pictureBox{
@@ -15,8 +15,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:80%;
+    height:50%;
     width: 70%;
+    margin-top:100px;
     /*background-color: #d0cccc;*/
     background-color: white;
     border: 10px solid white;
@@ -33,8 +34,21 @@
     height: 40px;
     text-align: center;
     line-height: 40px;
-    background-color: #d0cccc;
+    background-color: #bebebd;
+
+}
+.workContainer:hover{
+    transform: scale(1, 1.5);
 }
 .changeImage{
-    padding-top: 60px ;
+    padding-top: 60px;
+}
+.fileButton{
+    height: 25px;
+    width: 90px;
+    font-size: 14px;
+    background-color: #bebebd;
+    border: 1px solid #413f3f;
+    border-radius: 5px;
+    color: #413f3f;
 }
