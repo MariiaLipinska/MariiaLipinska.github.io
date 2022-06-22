@@ -4,7 +4,13 @@ import { actionUsersTypes } from "../ActionCreator/actionUsers";
 const initialState = {
     email: "",
     id: "",
-    password:""
+    password:"",
+    aboutMe:"",
+    fullName:"",
+    dateOfBirth:"",
+    position:"",
+    universities:"",
+    years:""
 };
 
 
@@ -24,6 +30,16 @@ const usersReducer = (state = initialState, action)=> {
             return {
                 ...state,
                 image: action.payload
+            }
+        case actionUsersTypes.EDIT_INFO:
+            return {
+                ...state,
+                info: action.payload
+            }
+        case actionUsersTypes.GET_EDIT_INFO:
+            return {
+                ...state,
+                info: action.payload
             }
         default:
             return state;
