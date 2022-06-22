@@ -5,11 +5,12 @@ import Button from 'rsuite/Button';
 
 import {fab, faCss3, faFigma, faGit, faGithub, faHtml5, faJs, faReact} from '@fortawesome/free-brands-svg-icons';
 import {useDispatch} from "react-redux";
+import {editDataFirebase} from "../../api/firebaseCalls";
 
 
 const AdminPage = () => {
-    // const dispatch = useDispatch()
-    // const editDataThunk = ()=>dispatch(getEditData())
+    const dispatch = useDispatch()
+    const editDataThunk = ()=>dispatch(editDataFirebase)
     return (
         <div className={classes.mainInfo}>
             <h4>Personal information</h4>
