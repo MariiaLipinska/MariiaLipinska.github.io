@@ -37,6 +37,19 @@ export const editDataFirebase = async (id, item) => {
     const docRef = doc(db, "editData", id);
     await setDoc(docRef, item);
 };
+export const getEditDataFirebase = async (dispatch) => {
+    const collectionRef = collection(db, "editData");
+    onSnapshot(collectionRef, (snapshot) => {
+        dispatch(
+            actionsUsers.getEditInfo(
+                snapshot.docs.map((doc) => ({
+                    ...doc.data(),
+                    id: doc.id,
+                }))
+            )
+        );
+    });
+};
 
 export const uploadFileToFB = (file, setImage) => {
     const storageRef = ref(storage, `/images/${file.name}`);

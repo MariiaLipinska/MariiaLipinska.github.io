@@ -1,16 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from "./AdminPage.module.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Button from 'rsuite/Button';
 
 import {fab, faCss3, faFigma, faGit, faGithub, faHtml5, faJs, faReact} from '@fortawesome/free-brands-svg-icons';
-import {useDispatch} from "react-redux";
-import {editDataFirebase} from "../../api/firebaseCalls";
+import {useDispatch, useSelector} from "react-redux";
+import {editDataFirebase, getEditDataFirebase, setImageToFirebase} from "../../api/firebaseCalls";
 
 
 const AdminPage = () => {
     const dispatch = useDispatch()
-    const editDataThunk = ()=>dispatch(editDataFirebase)
+    // const editDataThunk = ()=>dispatch(editDataFirebase)
+    const getEditDataThunk = ()=>dispatch(getEditDataFirebase)
+    // const editData = useSelector(state=> state.usersReducer.)
+    useEffect(()=>{
+        getEditDataThunk()
+    },[])
+
     return (
         <div className={classes.mainInfo}>
             <h4>Personal information</h4>
