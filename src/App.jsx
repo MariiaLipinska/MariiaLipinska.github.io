@@ -21,6 +21,7 @@ const App = () => {
     const path = useLocation().pathname;
     const location = useLocation();
     console.log(location);
+    console.log(store.getState())
     const transition = useTransition(location, {
         from: {
             opacity: 0,

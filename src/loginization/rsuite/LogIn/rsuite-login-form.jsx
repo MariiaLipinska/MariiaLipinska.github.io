@@ -4,12 +4,12 @@ import {FlexboxGrid, Form, Schema, Button, ButtonToolbar} from "rsuite";
 import {useNavigate} from "react-router-dom"
 import classes from "./rsuite-login-form.module.css"
 import {TextField} from "../rsuite";
-import {useDispatch} from "react-redux";
-import {actionsUsers, checkUser} from "../../../redux/ActionCreator/actionUsers";
 import {collection, onSnapshot} from "firebase/firestore";
 import db from "../../../firebase";
 import {RouteConst} from "../../../common/RouteConst";
-import {login} from "../../../api/firebaseCalls";
+import {useDispatch} from "react-redux";
+import {actionsUsers} from "../../../redux/ActionCreator/actionUsers";
+
 
 const RsuiteLoginForm = () => {
     const [admin, setAdmin] = useState();
@@ -19,6 +19,7 @@ const RsuiteLoginForm = () => {
         email: '',
         password: '',
     });
+    const dispatch = useDispatch()
     const {StringType, NumberType} = Schema.Types;
 
     const model = Schema.Model({
@@ -39,16 +40,14 @@ const RsuiteLoginForm = () => {
     //         navigate(RouteConst.ADMIN)
     //     }
     // }, [admin]);
-// const formData = {
-//         user:'"Fw6.A2<WX',
-//     password:'<9L:4*U3A&'
-// }
-
     const handleSubmit = () => {
         if (!formRef.current.check()) {
             console.error('Form Error');
             return;
         }
+        dispatch(actionsUsers.setAdmin(true))
+        localStorage.setItem("admin", JSON.stringify(true))
+        //
         let users;
         const collectionRef = collection(db, "user");
         onSnapshot(collectionRef, (snapshot) => {

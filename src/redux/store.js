@@ -4,7 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import usersReducer from "./reducers/usersReducers";
 
 const rootReducer = combineReducers({
-    user: usersReducer,
+    usersReducer: usersReducer,
 
 })
 
