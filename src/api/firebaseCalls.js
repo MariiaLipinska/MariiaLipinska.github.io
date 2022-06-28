@@ -1,9 +1,7 @@
 import {
     onSnapshot,
     collection,
-    addDoc,
     doc,
-    deleteDoc,
     setDoc,
 } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -25,14 +23,6 @@ export const getInfoFirebase = (dispatch) => {
         );
     });
 };
-
-
-// export const addInfoFirebase = async (data) => {
-//     const collectionRef = collection(db, "user");
-//     const docRef = await addDoc(collectionRef, data);
-//     docRef.id && console.log("Successfully added");
-// };
-
 export const editDataFirebase = async (id, item) => {
     const docRef = doc(db, "editData", id);
     await setDoc(docRef, item);
@@ -71,8 +61,9 @@ export const uploadFileToFB = (file, setImage) => {
     )
 };
 
-export const setImageToFirebase = (image) => {
-console.log(image)
+export const setImageToFirebase = (data,id, image) => {
+// console.log(image)
+//     editDataFirebase(data[0],id,{...data[0], image:image})
 }
 
 export const getImageFirebase = (dispatch) => {

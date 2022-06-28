@@ -1,50 +1,105 @@
-import React, {useEffect} from "react";
+import React, {createRef, useEffect, useState} from "react";
 import classes from "./AdminPage.module.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Button from 'rsuite/Button';
-
 import {fab, faCss3, faFigma, faGit, faGithub, faHtml5, faJs, faReact} from '@fortawesome/free-brands-svg-icons';
 import {useDispatch, useSelector} from "react-redux";
 import {editDataFirebase, getEditDataFirebase, setImageToFirebase} from "../../api/firebaseCalls";
+import {editInfoFirebase, getEditInfo} from "../../redux/ActionCreator/actionUsers";
 
 
 const AdminPage = () => {
+    const details = useSelector(state => state.usersReducer)
     const dispatch = useDispatch()
-    // const editDataThunk = ()=>dispatch(editDataFirebase)
-    const getEditDataThunk = ()=>dispatch(getEditDataFirebase)
-    // const editData = useSelector(state=> state.usersReducer.)
-    useEffect(()=>{
-        getEditDataThunk()
-    },[])
-
+    const editDataThunk = ()=>dispatch(editInfoFirebase)
+    const getEditDataThunk = () => dispatch(getEditInfo)
+    const editData = useSelector((state)=> state.usersReducer.info)
+    const [formValue, setFormValue] = useState({
+        name: details.fullName,
+        dateOfBirth: details.dateOfBirth,
+        languages: details.languages,
+        aboutMe: details.aboutMe,
+        position: details.position,
+        years1: details.years1,
+        years2: details.years2,
+        universities1: details.universities1,
+        universities2: details.universities2
+    })
+const saveButton = ()=>{
+   console.log("Button works")
+}
+    useEffect(() => {
+        dispatch(getEditDataThunk())
+        localStorage.getItem("admin")
+    }, [])
+    useEffect(() => {
+        dispatch(editDataThunk())
+    }, [])
     return (
         <div className={classes.mainInfo}>
             <h4>Personal information</h4>
             <hr/>
-            <div><span className={classes.info}>Fullname:</span><span contentEditable="false"> Mariia Lipinska</span> </div>
-            <div><span className={classes.info}>Date of birth:</span> <span contentEditable="false">January 5, 1996</span></div>
-            <div><span className={classes.info}>Position:</span> <span contentEditable="false">Frontend developer</span></div>
+            <form action="">
+                <div><span className={classes.info}>Fullname:</span> <input name="name"
+                                                                            onChange={(e) => setFormValue({
+                                                                                ...formValue,
+                                                                                [e.target.name]: e.target.value
+                                                                            })} value={formValue.name}/></div>
+                <div><span className={classes.info}>Date of birth:</span> <input name="dateOfBirth"
+                                                                                 onChange={(e) => setFormValue({
+                                                                                     ...formValue,
+                                                                                     [e.target.name]: e.target.value
+                                                                                 })} value={formValue.dateOfBirth}/>
+                </div>
+                <div><span className={classes.info}>Position:</span> <input name="position"
+                                                                            onChange={(e) => setFormValue({
+                                                                                ...formValue,
+                                                                                [e.target.name]: e.target.value
+                                                                            })} value={formValue.position}/></div>
+                <div><span className={classes.info}>Languages:</span> <input name="languages"
+                                                                             onChange={(e) => setFormValue({
+                                                                                 ...formValue,
+                                                                                 [e.target.name]: e.target.value
+                                                                             })} value={formValue.languages}/>
+                </div>
+            </form>
             <br/>
             <h4>About me</h4>
             <hr/>
-            <p className={classes.text} contentEditable="false">
-                I am frontend developer, who has just started her work experience.
-                I like to learn something new. That's why I tried to change my life and after being music
-                teacher learn
-                programming. It's interesting and useful thing, because technology is the future. I like to
-                improve my skills and to gain my goals. Also,
-                I have an experience in communication with different people, so it can be useful in team work.
-            </p>
+            <form>
+                <textarea className={classes.text} name="aboutMe" onChange={(e) => setFormValue({
+                    ...formValue,
+                    [e.target.name]: e.target.value
+                })} value={formValue.aboutMe}/>
+            </form>
             <h4>Education</h4>
             <hr/>
             <div className={classes.infoContainer}>
-                <div contentEditable="false">
-                    2015-2021 <br/>
-                    2021-2022
+                <div>
+                    <form>
+                        <input name="years1" onChange={(e) => setFormValue({
+                            ...formValue,
+                            [e.target.name]: e.target.value
+                        })} value={formValue.years1}/>
+                        <input name="years2" onChange={(e) => setFormValue({
+                            ...formValue,
+                            [e.target.name]: e.target.value
+                        })} value={formValue.years2}/>
+                    </form>
+
                 </div>
-                <div contentEditable="false">
-                    Lviv music academy (Musicology) <br/>
-                    Logos IT Academy (Frontend developing)
+                <div>
+                    <form>
+                        <input name="universities1" onChange={(e) => setFormValue({
+                            ...formValue,
+                            [e.target.name]: e.target.value
+                        })} value={formValue.universities1}/>
+                        <input name="universities2" onChange={(e) => setFormValue({
+                            ...formValue,
+                            [e.target.name]: e.target.value
+                        })} value={formValue.universities2}/>
+                    </form>
+
                 </div>
             </div>
             <h4>Technologies</h4>
@@ -81,9 +136,9 @@ const AdminPage = () => {
                 </div>
             </div>
             <div className={classes.buttonContainer}>
-                <Button color="blue" appearance="primary" className={classes.button}>Edit</Button>
-                <Button color="green" appearance="primary" className={classes.buttonChange}>Save</Button>
-                <Button color="red" appearance="primary" className={classes.buttonChange}>Cancel</Button>
+                {/*<Button color="blue" appearance="primary" className={classes.button}>Edit</Button>*/}
+                <Button color="green" appearance="primary" className={classes.buttonChange} onClick={()=>saveButton}>Save</Button>
+                <Button color="red" appearance="primary" className={classes.buttonChange} onClick={()=>saveButton}>Cancel</Button>
             </div>
         </div>
     )

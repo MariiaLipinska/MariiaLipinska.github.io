@@ -26,8 +26,10 @@
 
 }
 .picture{
-    width: 200px;
-    height: 280px;
+    max-width: 200px;
+    max-height: 280px;
+    width: auto;
+    height: auto;
 }
 .workContainer{
     width: 70%;
@@ -41,7 +43,9 @@
     transform: scale(1, 1.5);
 }
 .changeImage{
-    padding-top: 60px;
+    display: block;
+    margin-top: 260px;
+
 }
 .fileButton{
     height: 25px;

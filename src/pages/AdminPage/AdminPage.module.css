@@ -20,6 +20,7 @@
 .text{
     font-weight: normal;
     height: 200px;
+    width: 100%;
 }
 .technologies{
     text-align: center;
@@ -48,6 +49,6 @@
     height: 50px;
     font-size: 20px;
 }
-.buttonChange{
-    display: none;
-}
+/*.buttonChange{*/
+/*    display: none;*/
+/*}*/

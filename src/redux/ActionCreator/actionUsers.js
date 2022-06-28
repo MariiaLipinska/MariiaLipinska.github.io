@@ -1,11 +1,14 @@
 import {useDispatch} from "react-redux";
-import {getEditDataFirebase, getImageFirebase, getInfoFirebase} from "../../api/firebaseCalls";
+import {editDataFirebase, getEditDataFirebase, getImageFirebase, getInfoFirebase} from "../../api/firebaseCalls";
 
 export const actionUsersTypes = {
     CHECK_USER:"CHECK_USER",
     SET_ERROR:"SET_ERROR",
     SET_IMAGE: "SET_IMAGE",
-    GET_EDIT_INFO:"GET_EDIT_INFO"
+    GET_EDIT_INFO:"GET_EDIT_INFO",
+    EDIT_INFO:'EDIT-INFO',
+    CHANGE_NAME:'CHANGE-NAME',
+    SET_ADMIN:"SET_ADMIN"
 }
 
 export const actionsUsers = {
@@ -24,6 +27,10 @@ export const actionsUsers = {
     getEditInfo:(editInfo)=>({
         type: actionUsersTypes.GET_EDIT_INFO,
         payload: editInfo
+    }),
+    setAdmin:(admin)=>({
+        type: actionUsersTypes.SET_ADMIN,
+        payload: admin
     })
 }
 
@@ -33,8 +40,11 @@ export const getUser = () => {
 export const getImage = () => async(dispatch) =>{
     getImageFirebase(dispatch)
 }
-export const getInfo = () => async (dispatch)=>{
-    getEditDataFirebase()
+export const editInfoFirebase = () => async(dispatch) =>{
+    await editDataFirebase()
+}
+export const getEditInfo = () => async (dispatch)=>{
+  await  getEditDataFirebase(dispatch)
 }
 
 
