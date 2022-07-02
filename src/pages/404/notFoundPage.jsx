@@ -3,8 +3,8 @@ import classes from "./NotFoundPage.module.css"
 const NotFoundPage = () => {
     return (
         <div className={classes.container}>
-            <h1>Page not found</h1>
-            <h2>Please, log in!</h2>
+            <span className={classes. text1}>Page not found</span>
+            <span className={classes. text2}>Please, log in!</span>
         </div>
     );
 };

@@ -14,7 +14,10 @@ const initialState = {
     universities1: "Lviv music academy (Musicology)",
     universities2: "Logos IT Academy (Frontend developing)",
     years1: "2015-2021",
-    years2: "2021-2022"
+    years2: "2021-2022",
+    info: {
+       info:[]
+    }
 };
 
 
@@ -46,6 +49,10 @@ const usersReducer = (state = initialState, action) => {
                 info: action.payload
             }
         case actionUsersTypes.GET_EDIT_INFO:
+            return {
+                ...state,
+                info: action.payload
+            }
 
         default:
             return state;

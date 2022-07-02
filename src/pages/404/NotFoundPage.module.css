@@ -5,7 +5,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*padding: 0;*/
     background-color: #d0cccc;
     color: red;
+    text-transform: uppercase;
+}
+.container span{
+    display: block;
+}
+
+.text1{
+    font-size:60px;
+   letter-spacing: 8px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    background: #d0cccc;
+    animation: text 3s 1;
+}
+.text2{
+    font-size: 30px;
+}
+@keyframes text {
+    0%{
+        color:#d0cccc;
+        margin-bottom: -20px;
+    }
+    30%{
+        letter-spacing: 25px;
+        margin-bottom: -40px;
+    }
+    85%{
+        letter-spacing: 8px;
+        margin-bottom: -40px;
+    }
+    
 }

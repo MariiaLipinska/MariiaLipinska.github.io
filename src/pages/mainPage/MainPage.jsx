@@ -11,7 +11,7 @@ const MainPage = () => {
         <div className={classes.mainInfo}>
             <h4>Personal information</h4>
             <hr/>
-            <div><span className={classes.info}>Fullname:</span><span > {details.fullName}</span> </div>
+            <div><span className={classes.info}>Name:</span><span > {details.fullName}</span> </div>
             <div><span className={classes.info}>Date of birth:</span> <span>{details.dateOfBirth}</span></div>
             <div><span className={classes.info}>Position:</span> <span>{details.position}</span></div>
             <div><span className={classes.info}>Languages:</span> <span>{details.languages}</span></div>
