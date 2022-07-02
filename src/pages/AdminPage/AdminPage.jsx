@@ -11,11 +11,11 @@ import {editInfoFirebase, getEditInfo} from "../../redux/ActionCreator/actionUse
 const AdminPage = () => {
     const details = useSelector(state => state.usersReducer)
     const dispatch = useDispatch()
-    const editDataThunk = ()=>dispatch(editInfoFirebase)
+    const editDataThunk = (formValue) => dispatch(editInfoFirebase(formValue))
     const getEditDataThunk = () => dispatch(getEditInfo)
-    const editData = useSelector((state)=> state.usersReducer.info)
+    const editData = useSelector((state)=> state.usersReducer)
     const [formValue, setFormValue] = useState({
-        name: details.fullName,
+        fullName: details.fullName,
         dateOfBirth: details.dateOfBirth,
         languages: details.languages,
         aboutMe: details.aboutMe,
@@ -26,25 +26,25 @@ const AdminPage = () => {
         universities2: details.universities2
     })
 const saveButton = ()=>{
-   console.log("Button works")
+    console.log(formValue)
+   editDataThunk({formValue})
 }
+
+
     useEffect(() => {
         dispatch(getEditDataThunk())
         localStorage.getItem("admin")
-    }, [])
-    useEffect(() => {
-        dispatch(editDataThunk())
     }, [])
     return (
         <div className={classes.mainInfo}>
             <h4>Personal information</h4>
             <hr/>
             <form action="">
-                <div><span className={classes.info}>Fullname:</span> <input name="name"
+                <div><span className={classes.info}>Name:</span> <input name="name"
                                                                             onChange={(e) => setFormValue({
                                                                                 ...formValue,
                                                                                 [e.target.name]: e.target.value
-                                                                            })} value={formValue.name}/></div>
+                                                                            })} value={formValue.fullName}/></div>
                 <div><span className={classes.info}>Date of birth:</span> <input name="dateOfBirth"
                                                                                  onChange={(e) => setFormValue({
                                                                                      ...formValue,
@@ -137,8 +137,8 @@ const saveButton = ()=>{
             </div>
             <div className={classes.buttonContainer}>
                 {/*<Button color="blue" appearance="primary" className={classes.button}>Edit</Button>*/}
-                <Button color="green" appearance="primary" className={classes.buttonChange} onClick={()=>saveButton}>Save</Button>
-                <Button color="red" appearance="primary" className={classes.buttonChange} onClick={()=>saveButton}>Cancel</Button>
+                <Button color="green" appearance="primary" className={classes.buttonChange} onClick={saveButton}>Save</Button>
+                <Button color="red" appearance="primary" className={classes.buttonChange} onClick={saveButton}>Cancel</Button>
             </div>
         </div>
     )

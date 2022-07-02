@@ -40,8 +40,8 @@ export const getUser = () => {
 export const getImage = () => async(dispatch) =>{
     getImageFirebase(dispatch)
 }
-export const editInfoFirebase = () => async(dispatch) =>{
-    await editDataFirebase()
+export const editInfoFirebase = (item) => async(dispatch) =>{
+    await editDataFirebase(item)
 }
 export const getEditInfo = () => async (dispatch)=>{
   await  getEditDataFirebase(dispatch)

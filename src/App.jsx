@@ -20,8 +20,6 @@ const App = () => {
     const [admin, setAdmin] = useState("")
     const path = useLocation().pathname;
     const location = useLocation();
-    console.log(location);
-    console.log(store.getState())
     const transition = useTransition(location, {
         from: {
             opacity: 0,
@@ -57,7 +55,7 @@ const App = () => {
         }
     };
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user)
+    // console.log(user)
     return (
         <div className="App">
             <div className="app-wrapper">

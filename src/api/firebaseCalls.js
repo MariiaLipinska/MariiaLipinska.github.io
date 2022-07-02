@@ -23,7 +23,8 @@ export const getInfoFirebase = (dispatch) => {
         );
     });
 };
-export const editDataFirebase = async (id, item) => {
+export const editDataFirebase = async ( item, id=
+    "tIHffOT5wlwjmHrEmMGH") => {
     const docRef = doc(db, "editData", id);
     await setDoc(docRef, item);
 };
