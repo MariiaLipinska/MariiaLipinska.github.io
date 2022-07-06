@@ -4,12 +4,13 @@ import {addInfoFirebase, editInfoFirebase, setImageToFirebase, uploadFileToFB} f
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getImage} from "../../redux/ActionCreator/actionUsers";
+import {getImage, setImageFirebase} from "../../redux/ActionCreator/actionUsers";
 
 
 const Navbar = () => {
     const dispatch = useDispatch();
     const [image, setImage] = useState("")
+    const editImageThunk = (image)=>dispatch(setImageFirebase(image))
     const {admin} = useSelector(state => state.usersReducer)
     const editImage = useSelector((state)=> state.usersReducer.setImage)
     const getImageThunk = ()=>dispatch(getImage)
@@ -19,8 +20,11 @@ const Navbar = () => {
         if (!file) return
         uploadFileToFB(file, setImage)
     }
+    const changeImage = (image)=>{
+       dispatch(editImageThunk(setImage))
+    }
     useEffect(() => {
-            getImageThunk()
+            getImageThunk(image)
         }, [image]
     )
     const ad = JSON.parse(localStorage.getItem("admin"));
@@ -34,7 +38,7 @@ const Navbar = () => {
                 ad && <div className={classes.changeImage}>
                     <form action="" onSubmit={handleUpload}>
                         <input type="file"/>
-                        <button type="submit" className={classes.fileButton}>Set image</button>
+                        <button type="submit" className={classes.fileButton} onClick={changeImage}>Set image</button>
                     </form>
                 </div>
             }

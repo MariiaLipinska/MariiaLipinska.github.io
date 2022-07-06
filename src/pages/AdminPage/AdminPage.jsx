@@ -5,7 +5,7 @@ import Button from 'rsuite/Button';
 import {fab, faCss3, faFigma, faGit, faGithub, faHtml5, faJs, faReact} from '@fortawesome/free-brands-svg-icons';
 import {useDispatch, useSelector} from "react-redux";
 import {editDataFirebase, getEditDataFirebase, setImageToFirebase} from "../../api/firebaseCalls";
-import {editInfoFirebase, getEditInfo} from "../../redux/ActionCreator/actionUsers";
+import {editInfoFirebase, getEditInfo, setImage} from "../../redux/ActionCreator/actionUsers";
 
 
 const AdminPage = () => {
@@ -15,6 +15,7 @@ const AdminPage = () => {
     const getEditDataThunk = () => dispatch(getEditInfo)
     const editData = useSelector((state)=> state.usersReducer)
     const [formValue, setFormValue] = useState({
+
         fullName: details.fullName,
         dateOfBirth: details.dateOfBirth,
         languages: details.languages,
@@ -26,21 +27,24 @@ const AdminPage = () => {
         universities2: details.universities2
     })
 const saveButton = ()=>{
-    console.log(formValue)
-   editDataThunk({formValue})
+    // console.log(formValue)
+   editDataThunk(formValue)
 }
-
-
     useEffect(() => {
+
         dispatch(getEditDataThunk())
         localStorage.getItem("admin")
     }, [])
+// l
     return (
         <div className={classes.mainInfo}>
             <h4>Personal information</h4>
             <hr/>
+           {/*<div> <span className={classes.info}>Name:</span> <span className="editable" contentEditable="false" name="fullName"> {details.fullName}</span></div>*/}
             <form action="">
-                <div><span className={classes.info}>Name:</span> <input name="name"
+
+
+                <div><span className={classes.info}>Name:</span> <input name="fullName"
                                                                             onChange={(e) => setFormValue({
                                                                                 ...formValue,
                                                                                 [e.target.name]: e.target.value
@@ -136,7 +140,7 @@ const saveButton = ()=>{
                 </div>
             </div>
             <div className={classes.buttonContainer}>
-                {/*<Button color="blue" appearance="primary" className={classes.button}>Edit</Button>*/}
+                {/*<Button color="blue" appearance="primary" className={classes.button}  onClick={editButton}>Edit</Button>*/}
                 <Button color="green" appearance="primary" className={classes.buttonChange} onClick={saveButton}>Save</Button>
                 <Button color="red" appearance="primary" className={classes.buttonChange} onClick={saveButton}>Cancel</Button>
             </div>
