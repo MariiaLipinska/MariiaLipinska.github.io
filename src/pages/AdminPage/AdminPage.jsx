@@ -15,6 +15,7 @@ const AdminPage = () => {
     const getEditDataThunk = () => dispatch(getEditInfo)
     const editData = useSelector((state)=> state.usersReducer)
     const [formValue, setFormValue] = useState({
+
         fullName: details.fullName,
         dateOfBirth: details.dateOfBirth,
         languages: details.languages,
