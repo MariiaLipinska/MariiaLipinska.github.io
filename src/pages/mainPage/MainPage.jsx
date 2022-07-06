@@ -1,16 +1,28 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from "./MainPage.module.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faCss3, faFigma, faGithub, faHtml5, faJs, faReact} from '@fortawesome/free-brands-svg-icons';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {getEditInfo} from "../../redux/ActionCreator/actionUsers";
 
 
 const MainPage = () => {
     const details = useSelector(state=>state.usersReducer)
+    const editData = useSelector(state=> state.usersReducer.data)
+    const getEditDataThunk = () => dispatch(getEditInfo)
+    const dispatch = useDispatch()
+    // const editInfoThunk = ()=> dispatch(getEditInfo())
+    useEffect(()=>{
+        // dispatch(editInfoThunk())
+        dispatch(getEditDataThunk())
+    },[])
+    // console.log(editData)
     return (
         <div className={classes.mainInfo}>
             <h4>Personal information</h4>
             <hr/>
+            {/*debugger*/}
+            {/*<div><span className={classes.info}>Name:</span><span > {editData.map(item=>item.position)}</span> </div>*/}
             <div><span className={classes.info}>Name:</span><span > {details.fullName}</span> </div>
             <div><span className={classes.info}>Date of birth:</span> <span>{details.dateOfBirth}</span></div>
             <div><span className={classes.info}>Position:</span> <span>{details.position}</span></div>

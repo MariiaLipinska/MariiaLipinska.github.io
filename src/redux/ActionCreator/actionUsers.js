@@ -1,5 +1,11 @@
 import {useDispatch} from "react-redux";
-import {editDataFirebase, getEditDataFirebase, getImageFirebase, getInfoFirebase} from "../../api/firebaseCalls";
+import {
+    editDataFirebase,
+    getEditDataFirebase,
+    getImageFirebase,
+    getInfoFirebase,
+    setImageToFirebase
+} from "../../api/firebaseCalls";
 
 export const actionUsersTypes = {
     CHECK_USER:"CHECK_USER",
@@ -39,6 +45,9 @@ export const getUser = () => {
 }
 export const getImage = () => async(dispatch) =>{
     getImageFirebase(dispatch)
+}
+export const setImageFirebase = (image) => async(dispatch) =>{
+    await setImageToFirebase(dispatch)
 }
 export const editInfoFirebase = (item) => async(dispatch) =>{
     await editDataFirebase(item)

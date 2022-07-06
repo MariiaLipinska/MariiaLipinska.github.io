@@ -23,11 +23,7 @@ export const getInfoFirebase = (dispatch) => {
         );
     });
 };
-export const editDataFirebase = async ( item, id=
-    "tIHffOT5wlwjmHrEmMGH") => {
-    const docRef = doc(db, "editData", id);
-    await setDoc(docRef, item);
-};
+
 export const getEditDataFirebase = async (dispatch) => {
     const collectionRef = collection(db, "editData");
     onSnapshot(collectionRef, (snapshot) => {
@@ -61,10 +57,24 @@ export const uploadFileToFB = (file, setImage) => {
         }
     )
 };
+export const editDataFirebase = async ( item, id=
+    "tIHffOT5wlwjmHrEmMGH") => {
+    const docRef = doc(db, "editData", id);
+    await setDoc(docRef, item);
+};
 
-export const setImageToFirebase = (data,id, image) => {
+export const editUserFirebase = async ( item, id=
+    "A6HG1D3mgMC3USPJ6LoK") => {
+    const docRef = doc(db, "user", id);
+    await setDoc(docRef, item);
+};
+export const setImageToFirebase = async (data,id =
+"A6HG1D3mgMC3USPJ6LoK", image) => {
 // console.log(image)
-//     editDataFirebase(data[0],id,{...data[0], image:image})
+//     console.log(data)
+
+    await editUserFirebase( {...data[0], image: image}, data[0].id)
+
 }
 
 export const getImageFirebase = (dispatch) => {
