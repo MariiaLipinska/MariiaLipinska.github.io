@@ -9,10 +9,12 @@ const Header = () => {
             <div className={classes.headerMenu}>
                 <div className={classes.resume}>
                     <div className={classes.resumeLink}>
+                        {/*<Link to={RouteConst.MAIN} className={classes.link}>Resume</Link>*/}
                     <Link to={RouteConst.MAIN} className={`${classes.link} ${classes.active}`}>Resume</Link>
                     </div>
                     <div>
-                    <Link to={RouteConst.ADMIN} className={`${classes.link} ${classes.active}`}>Admin</Link>
+                    {/*<Link to={RouteConst.ADMIN} className={classes.link}>Admin</Link>*/}
+                        <Link to={RouteConst.ADMIN} className={`${classes.link} ${classes.active}`}>Admin</Link>
                     </div>
                 </div>
                 <div>

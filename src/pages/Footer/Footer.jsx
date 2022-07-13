@@ -3,11 +3,6 @@ import classes from './Footer.module.css'
 
 
 const Footer = () => {
-
-        // function mouseMove(e){
-        //     document.querySelector(".link").style.color = "white";
-        // }
-
     return (
         <footer className={classes.container}>
             <div className={classes.footerMenu}>

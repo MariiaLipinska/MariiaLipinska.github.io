@@ -1,6 +1,5 @@
 .container{
     grid-area: h;
-    /*background-image: radial-gradient( #56e0c7, white);*/
     background-color: #56e0c7;
 }
 .headerMenu{
@@ -12,7 +11,6 @@
 .resume{
     display: flex;
     margin-right: 550px;
-
 }
 .resumeLink{
     margin-left: 80px;
@@ -24,7 +22,15 @@
     text-decoration: none;
 }
 .link:hover{
+    color: #a7a8a8;
+    text-decoration: none;
+}
+Link {
     color: white;
+    text-decoration: none;
+}
+Link:hover{
+    color: #a7a8a8;
     text-decoration: none;
 }
 .active{

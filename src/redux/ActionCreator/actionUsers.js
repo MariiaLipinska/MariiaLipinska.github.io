@@ -1,6 +1,5 @@
-import {useDispatch} from "react-redux";
 import {
-    editDataFirebase,
+    editDataFirebase, editUserFirebase,
     getEditDataFirebase,
     getImageFirebase,
     getInfoFirebase,
@@ -22,10 +21,6 @@ export const actionsUsers = {
         type: actionUsersTypes.CHECK_USER,
         payload : user
     }),
-    setError: (error) => ({
-        type: actionUsersTypes.SET_ERROR,
-            payload: error
-    }),
     setImage: (image) => ({
         type: actionUsersTypes.SET_IMAGE,
         payload: image
@@ -40,14 +35,8 @@ export const actionsUsers = {
     })
 }
 
-export const getUser = () => {
-        getInfoFirebase()
-}
 export const getImage = () => async(dispatch) =>{
-    getImageFirebase(dispatch)
-}
-export const setImageFirebase = (image) => async(dispatch) =>{
-    await setImageToFirebase(dispatch)
+   await getImageFirebase(dispatch)
 }
 export const editInfoFirebase = (item) => async(dispatch) =>{
     await editDataFirebase(item)

@@ -3,26 +3,11 @@ import {
     collection,
     doc,
     setDoc,
+    getDoc
 } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import db, { storage } from "../firebase";
 import { actionsUsers } from "../redux/ActionCreator/actionUsers";
-
-
-
-export const getInfoFirebase = (dispatch) => {
-    const collectionRef = collection(db, "user");
-    onSnapshot(collectionRef, (snapshot) => {
-        dispatch(
-            actionsUsers.checkUser(
-                snapshot.docs.map((doc) => ({
-                    ...doc.data(),
-                    id: doc.id,
-                }))
-            )
-        );
-    });
-};
 
 export const getEditDataFirebase = async (dispatch) => {
     const collectionRef = collection(db, "editData");
@@ -32,7 +17,7 @@ export const getEditDataFirebase = async (dispatch) => {
                 snapshot.docs.map((doc) => ({
                     ...doc.data(),
                     id: doc.id,
-                }))
+                }))[0]
             )
         );
     });
@@ -41,7 +26,6 @@ export const getEditDataFirebase = async (dispatch) => {
 export const uploadFileToFB = (file, setImage) => {
     const storageRef = ref(storage, `/images/${file.name}`);
     const uploadData = uploadBytesResumable(storageRef, file);
-
     uploadData.on(
         "state_changed",
         (snapshot) => {
@@ -50,9 +34,13 @@ export const uploadFileToFB = (file, setImage) => {
         },
         (err) => console.log(err),
         () => {
-            getDownloadURL(uploadData.snapshot.ref).then((url) => {
+            getDownloadURL(uploadData.snapshot.ref).then(async (url) => {
                 console.log(url);
                 setImage(url);
+                const docRef = doc(db, "user", "34KJ5UIzf9GvV1HJyXPc")
+                await setDoc(docRef, {
+                   image: url
+                });
             });
         }
     )
@@ -63,31 +51,21 @@ export const editDataFirebase = async ( item, id=
     await setDoc(docRef, item);
 };
 
-export const editUserFirebase = async ( item, id=
-    "A6HG1D3mgMC3USPJ6LoK") => {
-    const docRef = doc(db, "user", id);
-    await setDoc(docRef, item);
-};
-export const setImageToFirebase = async (data,id =
-"A6HG1D3mgMC3USPJ6LoK", image) => {
-// console.log(image)
-//     console.log(data)
-
-    await editUserFirebase( {...data[0], image: image}, data[0].id)
-
-}
-
-export const getImageFirebase = (dispatch) => {
-    const collectionRef = collection(db, "user");
-    onSnapshot(collectionRef, (snapshot) => {
+export const getImageFirebase = async (dispatch) =>{
+    const docRef = doc(db, "user", "34KJ5UIzf9GvV1HJyXPc");
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
         dispatch(
             actionsUsers.setImage(
-                snapshot.docs.map((doc) => ({
-                    ...doc.data(),
-                    id: doc.id,
-                }))
-            )
-        );
-    })
+                docSnap.data().image
+                ))
+        console.log("Document data:", docSnap.data());
+        // console.log(docSnap.data().image)
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
 }
+
+
 

@@ -1,23 +1,16 @@
 .mainInfo {
     padding: 40px 30px 10px 30px;
-    /*padding-bottom: 10px;*/
-    /*padding-top: 40px;*/
-    /*padding-left: 30px;*/
     font-family: sans-serif;
     font-size: 20px;
     line-height: 30px;
-
 }
-
 .infoContainer {
-    /*width: 80%;*/
     display: flex;
     justify-content: space-between;
     font-size: 20px;
     font-weight: normal;
     text-align: justify;
     height: 100px;
-
 }
 .info{
     font-weight: bold;
@@ -41,6 +34,4 @@
     width:70px;
     height: 70px;
     color:black;
-    /*margin-right: 150px;*/
-
 }
