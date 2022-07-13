@@ -34,12 +34,12 @@ const RsuiteLoginForm = () => {
         admin?.role === "admin" && console.log(admin)
     },[admin])
     const navigate = useNavigate()
-    // useEffect(() => {
-    //     if(admin?.role === "admin"){
-    //         localStorage.setItem("user", JSON.stringify(admin))
-    //         navigate(RouteConst.ADMIN)
-    //     }
-    // }, [admin]);
+    useEffect(() => {
+        if(admin?.role === "admin"){
+            localStorage.setItem("user", JSON.stringify(admin))
+            navigate(RouteConst.ADMIN)
+        }
+    }, [admin]);
     const handleSubmit = () => {
         if (!formRef.current.check()) {
             console.error('Form Error');
