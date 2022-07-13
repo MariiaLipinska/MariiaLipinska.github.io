@@ -56,8 +56,8 @@ const RsuiteLoginForm = () => {
                 id: doc.id,
             }))
             console.log(users)
-            if (users[0].email === formValue.email && users[0].password === formValue.password) {
-                localStorage.setItem("user", JSON.stringify(users[0]));
+            if (users[1].email === formValue.email && users[1].password === formValue.password) {
+                localStorage.setItem("user", JSON.stringify(users[1]));
                 navigate(RouteConst.ADMIN)
 
             } else {
@@ -66,7 +66,6 @@ const RsuiteLoginForm = () => {
             console.log(formValue, 'Form Value');
         })
     }
-
 
     return (
         <div className={classes.container}>

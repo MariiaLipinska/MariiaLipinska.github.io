@@ -1,13 +1,9 @@
-
 .container{
     height: 100%;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     align-items: center;
     background-image: radial-gradient(#bebebd, #def0fc);
-    /*background-image: linear-gradient(to bottom ,#bebebd, #def0fc);*/
-    /*background-color: #bebebd;*/
     font-family: sans-serif;
 }
 .pictureBox{
@@ -18,7 +14,6 @@
     height:50%;
     width: 70%;
     margin-top:100px;
-    /*background-color: #d0cccc;*/
     background-color: white;
     border: 10px solid white;
     padding-top: 70px;
@@ -30,17 +25,6 @@
     max-height: 280px;
     width: auto;
     height: auto;
-}
-.workContainer{
-    width: 70%;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    background-color: #bebebd;
-
-}
-.workContainer:hover{
-    transform: scale(1, 1.5);
 }
 .changeImage{
     display: block;

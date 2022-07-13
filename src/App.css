@@ -21,9 +21,5 @@
   /* */
 }
 .app-wrapper-content{
-  /*width: 1200px;*/
   grid-area: c;
-    /*position: relative;*/
-    /*overflow: hidden;*/
-    /*min-height: 90vh;*/
 }
